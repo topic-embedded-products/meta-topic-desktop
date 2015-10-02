@@ -24,8 +24,8 @@ DYPLO = "\
 	dyplo-eeprom-license \
 	kernel-module-dyplo \
 	dyplo-example-app \
-  dyplo-utils \
-  libdyplo \
+	dyplo-utils \
+	libdyplo \
 "
 
 MY_DRIVERS = "\
@@ -39,8 +39,8 @@ MY_XFCE_DESKTOP = "\
 	xfce-selector \
 	xserver-xf86-config \
 	xf86-input-tslib \
-  xf86-input-mouse \
-  xf86-input-keyboard \
+	xf86-input-mouse \
+	xf86-input-keyboard \
 	xclock \
 	xrdb \
 	twm \
@@ -73,7 +73,6 @@ MY_THINGS = "\
 	${MY_DRIVERS} \
 	distro-feed-configs \
 	tslib-calibrate \
-  ${DYPLO} \
 	${MY_DEVELOPMENT_EXTRAS} \
 	${MY_XFCE_DESKTOP} \
 	"
