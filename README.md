@@ -5,14 +5,20 @@ https://github.com/topic-embedded-products/meta-topic
 
 Then follow these steps from the my-zynq directory.
 ```
+# Checkout tested revisions of meta-oe, oe-core and meta-browser.
 cd meta-oe
 git checkout 34dcefb1bfbbac33a771b4b68748e0d9d877365e
 cd ..
 cd oe-core
 git checkout 8c73bb7949656d91f138c087b9d261cdce90a94b
 cd ..
-git clone git://repo.topic.nl/meta-topic-desktop meta-topic-desktop
 git clone git://github.com/OSSystems/meta-browser.git meta-browser
+cd meta-browser
+git checkout 6ae140b29f0201fe3bb470da8c96c9e142294ebf
+cd ..
+
+git clone git://repo.topic.nl/meta-topic-desktop meta-topic-desktop
+
 
 cd build
 # Edit bblayers.conf to add the required layers.
