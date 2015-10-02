@@ -17,6 +17,7 @@ if [ ! -d ${BUILDDIR}/conf ]
 then
 	mkdir -p ${BUILDDIR}/conf
 fi
+
 cp -rp meta-topic-desktop/scripts/templates/build/* ${BUILDDIR}/
 
 echo "Build configuration has been overwritten (profile, conf/bblayers.conf, conf/local.conf)." 
