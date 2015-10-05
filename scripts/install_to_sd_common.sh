@@ -24,18 +24,60 @@ else
 	MEDIA=/media
 fi
 
-if [ ! -w ${MEDIA}/boot ]
+if [ -d ${MEDIA}/data ]
 then
-	echo "${MEDIA}/boot is not accesible. Are you root (sudo me),"
+	MEDIA_DATA=${MEDIA}/data
+else
+	MEDIA_DATA=${MEDIA}/boot
+fi
+MEDIA_BOOT=${MEDIA}/boot
+MEDIA_ROOTFS=${MEDIA}/rootfs
+
+# support manually supplied paths:
+if [ ! -z "$1" ]
+then
+	MEDIA_BOOT=$1
+fi
+if [ ! -z "$2" ]
+then
+	MEDIA_ROOTFS=$2
+fi
+if [ ! -z "$3" ]
+then
+	MEDIA_DATA=$3
+fi
+
+if [ ! -w ${MEDIA_BOOT} ]
+then
+	echo "${MEDIA_BOOT} is not accesible. Are you root (sudo me),"
 	echo "is the SD card inserted, and did you partition and"
 	echo "format it with partition_sd_card.sh?"
+	echo ""
+	echo "This script assumes the SD card is mounted in /media.";
+	echo "If this is not the case, you can supply the paths manually:";
+	echo "usage: install_to_sd_desktop_image.sh [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
 	exit 1
 fi
-if [ ! -w ${MEDIA}/rootfs ]
+if [ ! -w ${MEDIA_ROOTFS} ]
 then
-	echo "${MEDIA}/rootfs is not acccesible. Are you root (sudo me),"
+	echo "${MEDIA_ROOTFS} is not acccesible. Are you root (sudo me),"
 	echo "is the SD card inserted, and did you partition and"
 	echo "format it with partition_sd_card.sh?"
+	echo ""
+	echo "This script assumes the SD card is mounted in /media.";
+	echo "If this is not the case, you can supply the paths manually:";
+	echo "usage: install_to_sd_desktop_image.sh [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
+	exit 1
+fi
+if [ ! -w ${MEDIA_DATA} ]
+then
+	echo "${MEDIA_DATA} is not acccesible. Are you root (sudo me),"
+	echo "is the SD card inserted, and did you partition and"
+	echo "format it with partition_sd_card.sh?"
+	echo ""
+	echo "This script assumes the SD card is mounted in /media.";
+	echo "If this is not the case, you can supply the paths manually:";
+	echo "usage: install_to_sd_desktop_image.sh [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
 	exit 1
 fi
 if [ ! -f ${IMAGE_ROOT}/${IMAGE}-${MACHINE}.tar.gz ]
@@ -63,26 +105,21 @@ if [ -z "${SD_BOOTSCRIPT}" ]
 then
 	SD_BOOTSCRIPT=autorun.scr
 fi
-if [ -d ${MEDIA}/data ]
-then
-	MEDIA_DATA=${MEDIA}/data
-else
-	MEDIA_DATA=${MEDIA}/boot
-fi
+
 echo "Writing boot..."
-rm -f ${MEDIA}/boot/*.ubi ${MEDIA}/boot/*.squashfs-lzo
+rm -f ${MEDIA_BOOT}/*.ubi ${MEDIA_BOOT}/*.squashfs-lzo
 if [ -e ${IMAGE_ROOT}/BOOT.bin ]
 then
-	cp ${IMAGE_ROOT}/BOOT.bin ${MEDIA}/boot/BOOT.BIN
+	cp ${IMAGE_ROOT}/BOOT.bin ${MEDIA_BOOT}/BOOT.BIN
 	if [ -e ${IMAGE_ROOT}/u-boot.img ]
 	then
-		cp ${IMAGE_ROOT}/u-boot.img ${MEDIA}/boot/
+		cp ${IMAGE_ROOT}/u-boot.img ${MEDIA_BOOT}/
 	fi
-	cp ${IMAGE_ROOT}/${SD_BOOTSCRIPT} ${MEDIA}/boot/autorun.scr
-	cp ${IMAGE_ROOT}/uImage ${MEDIA}/boot/
-	cp ${IMAGE_ROOT}/${DTB} ${MEDIA}/boot/devicetree.dtb
+	cp ${IMAGE_ROOT}/${SD_BOOTSCRIPT} ${MEDIA_BOOT}/autorun.scr
+	cp ${IMAGE_ROOT}/uImage ${MEDIA_BOOT}/
+	cp ${IMAGE_ROOT}/${DTB} ${MEDIA_BOOT}/devicetree.dtb
 else
-	tar xaf ${IMAGE_ROOT}/boot.tar.gz --no-same-owner -C ${MEDIA}/boot
+	tar xaf ${IMAGE_ROOT}/boot.tar.gz --no-same-owner -C ${MEDIA_BOOT}
 fi
 for FS in ubi squashfs-lzo squashfs-xz
 do
@@ -92,28 +129,28 @@ do
 	fi
 done
 echo "Writing rootfs..."
-if [ ! -f dropbear_rsa_host_key -a -f ${MEDIA}/rootfs/etc/dropbear/dropbear_rsa_host_key ]
+if [ ! -f dropbear_rsa_host_key -a -f ${MEDIA_ROOTFS}/etc/dropbear/dropbear_rsa_host_key ]
 then
 	cp ${MEDIA}/rootfs/etc/dropbear/dropbear_rsa_host_key .
 	chmod 666 dropbear_rsa_host_key
 fi
-rm -rf ${MEDIA}/rootfs/*
-tar xzf ${IMAGE_ROOT}/${IMAGE}-${MACHINE}.tar.gz -C ${MEDIA}/rootfs
+rm -rf ${MEDIA_ROOTFS}/*
+tar xzf ${IMAGE_ROOT}/${IMAGE}-${MACHINE}.tar.gz -C ${MEDIA_ROOTFS}
 if [ -f dropbear_rsa_host_key ]
 then
-	install -d ${MEDIA}/rootfs/etc/dropbear
-	install -m 600 dropbear_rsa_host_key ${MEDIA}/rootfs/etc/dropbear/dropbear_rsa_host_key
+	install -d ${MEDIA_ROOTFS}/etc/dropbear
+	install -m 600 dropbear_rsa_host_key ${MEDIA_ROOTFS}/etc/dropbear/dropbear_rsa_host_key
 fi
 if [ ! -z "${FPGA_BOOT_IMAGE}" ]
 then
-	cp ${MEDIA}/rootfs/${FPGA_BOOT_IMAGE} ${MEDIA}/boot/fpga.bin
+	cp ${MEDIA_ROOTFS}/${FPGA_BOOT_IMAGE} ${MEDIA_BOOT}/fpga.bin
 fi
 
 if [ $DO_UNMOUNT -ne 0 ]
 then
 	sleep 1
 	echo -n "Unmounting"
-	for p in ${MEDIA}/boot ${MEDIA}/rootfs ${MEDIA}/data
+	for p in ${MEDIA_BOOT} ${MEDIA_ROOTFS} ${MEDIA_DATA}
 	do
 		if [ -d $p ]
 		then

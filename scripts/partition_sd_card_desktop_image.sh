@@ -31,7 +31,7 @@ done
 
 set -e
 
-# clear the (start of) the device to remove the partition table
+# clear the (start of) the device to remove the MBR
 dd if=/dev/zero of=${DEV} bs=8192 count=1
 
 # Partition the disk, as 64M FAT16, 1500MB root and the rest data
