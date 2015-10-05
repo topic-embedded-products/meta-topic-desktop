@@ -11,7 +11,7 @@ iface wlan0 inet dhcp
 	wpa-conf /etc/wpa_example_configuration.conf
 
 # Wired interfaces
-auto eth0
+#auto eth0
 iface eth0 inet dhcp
 iface eth1 inet dhcp
 
