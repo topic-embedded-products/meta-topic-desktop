@@ -35,7 +35,7 @@ MY_DRIVERS = "\
 
 MY_XFCE_DESKTOP = "\
 	packagegroup-core-x11-xserver \
-	packagegroup-xfce-base \ 
+	packagegroup-xfce-extended \ 
 	packagegroup-core-sdk \
 	xfce-selector \
 	xserver-xf86-config \
