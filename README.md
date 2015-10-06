@@ -27,6 +27,8 @@ cd build
 #     ${LAYERTOPDIR}/oe-core/meta \
 #     ${LAYERTOPDIR}/meta-oe/meta-oe \
 #     ${LAYERTOPDIR}/meta-oe/meta-xfce \
+#     ${LAYERTOPDIR}/meta-oe/meta-multimedia \
+#     ${LAYERTOPDIR}/meta-oe/meta-networking \
 #     ${LAYERTOPDIR}/meta-oe/meta-gnome \
 #     ${LAYERTOPDIR}/meta-oe/meta-python \
 #     ${LAYERTOPDIR}/meta-topic \
