@@ -70,7 +70,13 @@ else
 fi
 for f in /sys/class/input/event*
 do
-        if grep -q "Headphone" $f/device/name
+        if grep -iq "Keyboard" $f/device/name
+        then
+                b=`basename $f`
+                echo "Found Keyboard at $b"
+                ln -s /dev/input/$b /dev/input/eventkeyboard
+        fi
+        if grep -iq "Headphone" $f/device/name
         then
                 b=`basename $f`
                 echo "Found Headphone at $b"
