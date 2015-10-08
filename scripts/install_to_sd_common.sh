@@ -55,7 +55,7 @@ then
 	echo ""
 	echo "This script assumes the SD card is mounted in /media.";
 	echo "If this is not the case, you can supply the paths manually:";
-	echo "usage: install_to_sd_desktop_image.sh [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
+	echo "usage: $0 [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
 	exit 1
 fi
 if [ ! -w ${MEDIA_ROOTFS} ]
@@ -66,7 +66,7 @@ then
 	echo ""
 	echo "This script assumes the SD card is mounted in /media.";
 	echo "If this is not the case, you can supply the paths manually:";
-	echo "usage: install_to_sd_desktop_image.sh [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
+	echo "usage: $0 [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
 	exit 1
 fi
 if [ ! -w ${MEDIA_DATA} ]
@@ -77,7 +77,7 @@ then
 	echo ""
 	echo "This script assumes the SD card is mounted in /media.";
 	echo "If this is not the case, you can supply the paths manually:";
-	echo "usage: install_to_sd_desktop_image.sh [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
+	echo "usage: $0 [pathToBootFileSystem] [pathToRootFileSystem] [pathToDataFileSystem]"
 	exit 1
 fi
 if [ ! -f ${IMAGE_ROOT}/${IMAGE}-${MACHINE}.tar.gz ]
