@@ -16,6 +16,7 @@ if [ -z "${IMAGE_ROOT}" ]
 then
 	IMAGE_ROOT=tmp-glibc/deploy/images/${MACHINE}
 fi
+
 # Ubuntu <14 uses /media for mounts, Ubuntu 14 uses /media/$USER
 if [ -d /media/${SUDO_USER} ]
 then
@@ -24,27 +25,31 @@ else
 	MEDIA=/media
 fi
 
-if [ -d ${MEDIA}/data ]
-then
-	MEDIA_DATA=${MEDIA}/data
-else
-	MEDIA_DATA=${MEDIA}/boot
-fi
-MEDIA_BOOT=${MEDIA}/boot
-MEDIA_ROOTFS=${MEDIA}/rootfs
-
 # support manually supplied paths:
 if [ ! -z "$1" ]
 then
 	MEDIA_BOOT=$1
+else
+	MEDIA_BOOT=${MEDIA}/boot
 fi
+
 if [ ! -z "$2" ]
 then
 	MEDIA_ROOTFS=$2
+else
+	MEDIA_ROOTFS=${MEDIA}/rootfs
 fi
+
 if [ ! -z "$3" ]
 then
 	MEDIA_DATA=$3
+else
+	if [ -d ${MEDIA}/data ]
+	then
+		MEDIA_DATA=${MEDIA}/data
+	else
+		MEDIA_DATA=${MEDIA}/boot
+	fi
 fi
 
 if [ ! -w ${MEDIA_BOOT} ]
@@ -131,7 +136,7 @@ done
 echo "Writing rootfs..."
 if [ ! -f dropbear_rsa_host_key -a -f ${MEDIA_ROOTFS}/etc/dropbear/dropbear_rsa_host_key ]
 then
-	cp ${MEDIA}/rootfs/etc/dropbear/dropbear_rsa_host_key .
+	cp ${MEDIA_ROOTFS}/etc/dropbear/dropbear_rsa_host_key .
 	chmod 666 dropbear_rsa_host_key
 fi
 rm -rf ${MEDIA_ROOTFS}/*
