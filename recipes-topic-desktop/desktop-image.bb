@@ -65,7 +65,6 @@ MY_XFCE_DESKTOP = "\
 	git \
 	gdb \
 	libc-dev \
-	mplayer \
 	example-wifi-config \
 	" 
 
