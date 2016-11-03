@@ -1,48 +1,43 @@
-# Desktop Environment for Florida/Miami
+# Desktop Environment for Florida/Miami. Intended to be built by the server
 
-First, make sure you have followed the README from meta-topic:
-https://github.com/topic-embedded-products/meta-topic
+First, you should clone a copy of topic-platform:
+https://github.com/topic-embedded-products/topic-platform
+Run the initialisation as usual, then add some extra repo's. Example script to
+build the image:
 
-Then follow these steps from the my-zynq directory.
 ```
-# Checkout tested revisions of meta-oe, oe-core and meta-browser.
-cd meta-oe
-git checkout 34dcefb1bfbbac33a771b4b68748e0d9d877365e
-cd ..
-cd oe-core
-git checkout 8c73bb7949656d91f138c087b9d261cdce90a94b
+git clone http://github.com/topic-embedded-products/topic-platform.git topic-desktop-platform
+cd topic-desktop-platform
+git submodule update --init
+meta-topic/scripts/init-oe.sh
+git clone git://repo.topic.nl/meta-topic-desktop meta-topic-desktop
+cd meta-topic-desktop
+git submodule update
 cd ..
 git clone git://github.com/OSSystems/meta-browser.git meta-browser
 cd meta-browser
-git checkout 6ae140b29f0201fe3bb470da8c96c9e142294ebf
+git fetch
+git checkout origin/morty
 cd ..
-
-git clone git://repo.topic.nl/meta-topic-desktop meta-topic-desktop
-
-
+meta-topic-desktop/scripts/setup-desktop-build.sh
 cd build
-# Edit bblayers.conf to add the required layers.
-# The BBLAYERS variable should include (at least) these layers:
-#   BBLAYERS = " \
-#     ${LAYERTOPDIR}/oe-core/meta \
-#     ${LAYERTOPDIR}/meta-oe/meta-oe \
-#     ${LAYERTOPDIR}/meta-oe/meta-xfce \
-#     ${LAYERTOPDIR}/meta-oe/meta-multimedia \
-#     ${LAYERTOPDIR}/meta-oe/meta-networking \
-#     ${LAYERTOPDIR}/meta-oe/meta-gnome \
-#     ${LAYERTOPDIR}/meta-oe/meta-python \
-#     ${LAYERTOPDIR}/meta-topic \
-#     ${LAYERTOPDIR}/meta-browser \
-#     ${LAYERTOPDIR}/meta-topic-desktop \
-# "
-vi conf/bblayers.conf
-
-# Edit local.conf to build the right distro.
-# Change the DISTRO=".." line to:
-#   DISTRO="topic-desktop"
-vi conf/local.conf
-
-# Then build the desktop image:
-. ./profile
-bitbake desktop-image
+source ./profile
+fpga=xc7z015
+export MACHINE=topic-miami-florida-gen-${fpga}
+export DTB=uImage-topic-miami-florida-gen.dtb
+echo "Building for $MACHINE"
+nice bitbake desktop-image
+echo "Packaging release for ${fpga}"
+../meta-topic/scripts/create-boot-archive.sh
+mv tmp-glibc/deploy/images/${MACHINE}/boot.tar.gz boot_${fpga}.tar.gz
+cp tmp-glibc/deploy/images/${MACHINE}/desktop-image-${MACHINE}.rootfs.tar.gz rootfs_desktop-image_${fpga}.tar.gz
 ```
+
+This delivers two tar files. Extract the "boot" tar onto the primary FAT
+partition called "boot" on the SD card, e.g.:
+```tar xzf boot_${fpga}.tar.gz -C /media/$USER/boot```
+
+Extract the rootfs tarball to the rootfs partition, you'll need to be root for
+that to work:
+```sudo tar rootfs_desktop-image_${fpga}.tar.gz -C /media/$USER/rootfs```
+
