@@ -6,8 +6,8 @@ require recipes-core/images/my-image.bb
 # Don't create an ubi image, it won't fit
 IMAGE_FSTYPES = "tar.gz"
 
-MACHINE_FPGA_BITSTREAM = "fpga-image-medical-demo"
-#MACHINE_FPGA_BITSTREAM = "fpga-image-miami-florida-gen-reference"
+#MACHINE_FPGA_BITSTREAM = "fpga-image-medical-demo"
+MACHINE_FPGA_BITSTREAM = "fpga-image-miami-florida-gen-reference"
 
 # We change the contents of MACHINE_EXTRA_RRECOMMENDS, so override the
 # machine dependencies to get the packages we need instead of the
