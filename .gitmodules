@@ -1,0 +1,9 @@
+[submodule "topic-platform"]
+	path = topic-platform
+	url = http://github.com/topic-embedded-products/topic-platform.git
+[submodule "meta-browser"]
+	path = meta-browser
+	url = git://github.com/OSSystems/meta-browser.git
+[submodule "meta-dyplo"]
+	path = meta-dyplo
+	url = http://github.com/topic-embedded-products/meta-dyplo.git
