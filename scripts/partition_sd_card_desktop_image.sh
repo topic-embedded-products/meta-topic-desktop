@@ -46,7 +46,7 @@ EOF
 mkfs.vfat -n "boot" ${DEV}1
 
 # Format the Linux rootfs part
-mkfs.ext4 -m 0 -L "rootfs" -b 2048 -N 240000 -O sparse_super,dir_index  ${DEV}2
+mkfs.ext4 -m 0 -L "rootfs" -b 2048 -N 200000 -O sparse_super,dir_index  ${DEV}2
 
 # Format the Linux data part, optimize for large files
 mkfs.ext4 -m 0 -L "data" -O large_file,sparse_super,dir_index,bigalloc -C 262144 ${DEV}3
