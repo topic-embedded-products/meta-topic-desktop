@@ -98,4 +98,4 @@ then
 		sync
 	fi
 fi
-exec startxfce4
+exec startxfce4 --with-ck-launch
