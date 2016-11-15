@@ -6,14 +6,6 @@ require recipes-core/images/my-image.bb
 # Don't create an ubi image, it won't fit
 IMAGE_FSTYPES = "tar.gz wic"
 
-#MACHINE_FPGA_BITSTREAM = "fpga-image-medical-demo"
-MACHINE_FPGA_BITSTREAM = "fpga-image-miami-florida-gen-reference"
-
-# We change the contents of MACHINE_EXTRA_RRECOMMENDS, so override the
-# machine dependencies to get the packages we need instead of the
-# default ones.
-IMAGE_INSTALL_MACHINE_EXTRAS = "${MACHINE_EXTRA_RDEPENDS} ${MACHINE_EXTRA_RRECOMMENDS}"
-
 MY_DEVELOPMENT_EXTRAS = "\
 	alsa-utils-aplay alsa-utils-speakertest alsa-utils-amixer alsa-utils-alsactl \
 	iw \
@@ -26,8 +18,8 @@ DYPLO = "\
 	kernel-module-dyplo \
 	dyplo-example-app \
 	dyplo-utils \
-	libdyplo \
-"
+	libdyplo-dev \
+	"
 
 MY_DRIVERS = "\
 	kernel-modules \
@@ -75,6 +67,7 @@ MY_THINGS = "\
 	tslib-calibrate \
 	${MY_DEVELOPMENT_EXTRAS} \
 	${MY_XFCE_DESKTOP} \
+	${DYPLO} \
 	"
 
 rootfs_add_xfce_autostart() {
