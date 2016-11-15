@@ -4,7 +4,7 @@ DESCRIPTION = "TOPIC Miami image for XFCE Graphical Desktop Environment"
 require recipes-core/images/my-image.bb
 
 # Don't create an ubi image, it won't fit
-IMAGE_FSTYPES = "tar.gz"
+IMAGE_FSTYPES = "tar.gz wic"
 
 #MACHINE_FPGA_BITSTREAM = "fpga-image-medical-demo"
 MACHINE_FPGA_BITSTREAM = "fpga-image-miami-florida-gen-reference"
