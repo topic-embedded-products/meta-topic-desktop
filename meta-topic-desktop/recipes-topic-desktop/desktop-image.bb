@@ -4,7 +4,7 @@ DESCRIPTION = "TOPIC Miami image for XFCE Graphical Desktop Environment"
 require recipes-core/images/my-image.bb
 
 # Don't create an ubi image, it won't fit
-IMAGE_FSTYPES = "tar.gz wic"
+IMAGE_FSTYPES = "tar.gz wic.gz"
 
 MY_DEVELOPMENT_EXTRAS = "\
 	alsa-utils-aplay alsa-utils-speakertest alsa-utils-amixer alsa-utils-alsactl \
