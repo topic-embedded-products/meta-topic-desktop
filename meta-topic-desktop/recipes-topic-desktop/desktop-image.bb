@@ -11,6 +11,7 @@ MY_DEVELOPMENT_EXTRAS = "\
 	iw \
 	i2c-tools \
 	udhcpd-iface-config \
+	topic-florida-led-example-src \
 	"
 
 DYPLO = "\
