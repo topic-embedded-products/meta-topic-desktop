@@ -103,7 +103,7 @@ do
 done
 if [ -z "${DTB}" ]
 then
-	DTB="uImage-*-adv7511.dtb"
+	DTB=uImage-topic-miami-florida-gen.dtb
 fi
 set -e
 if [ -z "${SD_BOOTSCRIPT}" ]
