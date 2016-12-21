@@ -3,6 +3,8 @@ DESCRIPTION = "TOPIC Miami image for XFCE Graphical Desktop Environment"
 # Extending my-image
 require recipes-core/images/my-image.bb
 
+IMAGE_FEATURES += "x11-base"
+
 # Don't create an ubi image, it won't fit
 IMAGE_FSTYPES = "tar.gz wic.gz"
 
@@ -62,7 +64,7 @@ MY_XFCE_DESKTOP = "\
 	" 
 
 MY_THINGS = "\
-	modutils-loadscript \
+	${@bb.utils.contains('VIRTUAL-RUNTIME_dev_manager', 'busybox-mdev', 'modutils-loadscript', '', d)} \
 	${MY_DRIVERS} \
 	distro-feed-configs \
 	tslib-calibrate \
@@ -77,5 +79,5 @@ rootfs_add_xfce_autostart() {
 }
 
 ROOTFS_POSTPROCESS_COMMAND += "\
-	rootfs_add_xfce_autostart; \
+	${@bb.utils.contains('DISTRO_FEATURES','systemd','','rootfs_add_xfce_autostart;',d)} \
 	"
