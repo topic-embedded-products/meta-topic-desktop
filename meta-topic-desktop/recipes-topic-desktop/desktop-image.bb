@@ -70,4 +70,5 @@ MY_THINGS = "\
 	${MY_DEVELOPMENT_EXTRAS} \
 	${MY_XFCE_DESKTOP} \
 	${DYPLO} \
+	udev-rule-fbdev \
 	"
