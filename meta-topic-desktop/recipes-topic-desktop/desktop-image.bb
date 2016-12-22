@@ -32,7 +32,6 @@ MY_XFCE_DESKTOP = "\
 	packagegroup-core-x11-xserver \
 	packagegroup-xfce-extended \ 
 	packagegroup-core-sdk \
-	xfce-selector \
 	xserver-xf86-config \
 	xf86-input-tslib \
 	xf86-input-mouse \
@@ -71,13 +70,4 @@ MY_THINGS = "\
 	${MY_DEVELOPMENT_EXTRAS} \
 	${MY_XFCE_DESKTOP} \
 	${DYPLO} \
-	"
-
-rootfs_add_xfce_autostart() {
-	# Autostart xfce
-	echo "gui:5:once:${sysconfdir}/init.d/xfce-selector.sh" >> ${IMAGE_ROOTFS}${sysconfdir}/inittab
-}
-
-ROOTFS_POSTPROCESS_COMMAND += "\
-	${@bb.utils.contains('DISTRO_FEATURES','systemd','','rootfs_add_xfce_autostart;',d)} \
 	"
