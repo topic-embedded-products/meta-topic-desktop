@@ -60,6 +60,7 @@ MY_XFCE_DESKTOP = "\
 	gdb \
 	libc-dev \
 	example-wifi-config \
+	touchscreen-ad7879-config \
 	" 
 
 MY_THINGS = "\
