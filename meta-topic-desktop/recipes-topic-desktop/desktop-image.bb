@@ -13,7 +13,6 @@ MY_DEVELOPMENT_EXTRAS = "\
 	iw \
 	i2c-tools \
 	udhcpd-iface-config \
-	topic-florida-led-example-src \
 	"
 
 DYPLO = "\
@@ -60,16 +59,22 @@ MY_XFCE_DESKTOP = "\
 	gdb \
 	libc-dev \
 	example-wifi-config \
-	touchscreen-ad7879-config \
 	" 
+
+BOARD_SPECIFIC_THINGS = ""
+BOARD_SPECIFIC_THINGS_topic-miami-florida = "\
+	tslib-calibrate \
+	udev-rule-fbdev \
+	touchscreen-ad7879-config \
+	topic-florida-led-example-src \
+	"
 
 MY_THINGS = "\
 	${@bb.utils.contains('VIRTUAL-RUNTIME_dev_manager', 'busybox-mdev', 'modutils-loadscript', '', d)} \
 	${MY_DRIVERS} \
 	distro-feed-configs \
-	tslib-calibrate \
 	${MY_DEVELOPMENT_EXTRAS} \
 	${MY_XFCE_DESKTOP} \
 	${DYPLO} \
-	udev-rule-fbdev \
+	${BOARD_SPECIFIC_THINGS} \
 	"
