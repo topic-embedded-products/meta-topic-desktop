@@ -43,9 +43,7 @@ MY_XFCE_DESKTOP = "\
 	xarchiver \
 	ristretto \
 	evince \  
-	florence \
 	geany \
-	firefox \
 	cmake \
 	python3 \
 	python3-setuptools \
@@ -58,7 +56,6 @@ MY_XFCE_DESKTOP = "\
 	git \
 	gdb \
 	libc-dev \
-	example-wifi-config \
 	" 
 
 BOARD_SPECIFIC_THINGS = ""

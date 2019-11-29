@@ -1,4 +1,6 @@
-export MACHINE=topic-miami-florida-gen-xc7z015
+export MACHINE=tdkz30
 export BB_ENV_EXTRAWHITE=MACHINE
+export BUILDDIR="${PWD}"
 TOPDIR=`dirname ${PWD}`
 export PATH=${TOPDIR}/topic-platform/oe-core/scripts:${TOPDIR}/topic-platform/bitbake/bin:$PATH
+echo "MACHINE=${MACHINE}"

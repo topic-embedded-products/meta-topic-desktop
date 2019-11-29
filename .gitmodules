@@ -7,3 +7,6 @@
 [submodule "meta-dyplo"]
 	path = meta-dyplo
 	url = http://github.com/topic-embedded-products/meta-dyplo.git
+[submodule "meta-clang"]
+	path = meta-clang
+	url = https://github.com/kraj/meta-clang
