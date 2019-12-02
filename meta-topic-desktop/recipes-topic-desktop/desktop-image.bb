@@ -11,6 +11,7 @@ IMAGE_FSTYPES = "tar.gz wic.gz"
 MY_DEVELOPMENT_EXTRAS = "\
 	alsa-utils-aplay alsa-utils-speakertest alsa-utils-amixer alsa-utils-alsactl \
 	udhcpd-iface-config \
+	parted e2fsprogs-mke2fs dosfstools \
 	"
 
 DYPLO = "\
