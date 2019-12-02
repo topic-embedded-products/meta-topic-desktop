@@ -25,6 +25,7 @@ MY_DRIVERS = "\
 	"
 
 MY_XFCE_DESKTOP = "\
+	avahi-daemon \
 	packagegroup-core-x11-xserver \
 	packagegroup-xfce-extended \ 
 	xserver-xf86-config \
