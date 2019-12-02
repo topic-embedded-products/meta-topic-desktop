@@ -45,6 +45,7 @@ MY_XFCE_DESKTOP = "\
 	python3-setuptools \
 	python3-pip \
 	sudo \
+	firefox \
 	" 
 
 # Things that a programmer needs, like a compiler and cmake and libraries...
