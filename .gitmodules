@@ -10,3 +10,6 @@
 [submodule "meta-clang"]
 	path = meta-clang
 	url = https://github.com/kraj/meta-clang
+[submodule "meta-rust"]
+	path = meta-rust
+	url = git://github.com/meta-rust/meta-rust
