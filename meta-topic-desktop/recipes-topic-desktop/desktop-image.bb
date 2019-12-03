@@ -6,7 +6,7 @@ require recipes-core/images/my-image.bb
 IMAGE_FEATURES += "x11-base"
 
 # Don't create an ubi image, it won't fit
-IMAGE_FSTYPES = "tar.gz wic.gz"
+IMAGE_FSTYPES = "tar.gz wic"
 
 MY_DEVELOPMENT_EXTRAS = "\
 	alsa-utils-aplay alsa-utils-speakertest alsa-utils-amixer alsa-utils-alsactl \
