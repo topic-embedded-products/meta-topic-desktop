@@ -45,7 +45,7 @@ MY_XFCE_DESKTOP = "\
 	python3-setuptools \
 	python3-pip \
 	sudo \
-	firefox \
+	ca-certificates \
 	" 
 
 # Things that a programmer needs, like a compiler and cmake and libraries...
@@ -70,8 +70,10 @@ BOARD_SPECIFIC_THINGS_topic-miami-florida = "\
 	topic-florida-led-example-src \
 	"
 
+# Firefox failed to compile on 32-bit, so restrict to zynqmp for now
 BOARD_SPECIFIC_THINGS_zynqmp = "\
 	xserver-xorg-extension-glx \
+	firefox \
 	"
 
 MY_THINGS = "\
