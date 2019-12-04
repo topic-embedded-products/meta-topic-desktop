@@ -24,12 +24,65 @@ MY_DRIVERS = "\
 	kernel-modules \
 	"
 
+# not using packagegroup-xfce-extended because it installs xfce-polkit
 MY_XFCE_DESKTOP = "\
 	avahi-daemon \
 	packagegroup-core-x11-xserver \
-	packagegroup-xfce-extended \ 
+	packagegroup-xfce-base \
+    \
+    xfwm4-theme-daloa \
+    \
+    xfce-dusk-gtk3 \
+    \
+    xfce4-cpufreq-plugin \
+    xfce4-cpugraph-plugin \
+    xfce4-datetime-plugin \
+    xfce4-eyes-plugin \
+    xfce4-clipman-plugin \
+    xfce4-diskperf-plugin \
+    xfce4-netload-plugin \
+    xfce4-genmon-plugin \
+    xfce4-xkb-plugin \
+    xfce4-wavelan-plugin \
+    xfce4-places-plugin \
+    xfce4-systemload-plugin \
+    xfce4-time-out-plugin \
+    xfce4-timer-plugin \
+    xfce4-embed-plugin \
+    xfce4-weather-plugin \
+    xfce4-fsguard-plugin \
+    xfce4-battery-plugin \
+    xfce4-mount-plugin \
+    xfce4-powermanager-plugin \
+    xfce4-closebutton-plugin \
+    xfce4-equake-plugin \
+    xfce4-notes-plugin \
+    xfce4-whiskermenu-plugin \
+    xfce4-mailwatch-plugin \
+    xfce4-kbdleds-plugin \
+    xfce4-smartbookmark-plugin \
+    xfce4-hotcorner-plugin \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', 'xfce4-pulseaudio-plugin', '', d)} \
+    xfce4-sensors-plugin \
+    xfce4-calculator-plugin \
+    xfce4-verve-plugin \
+    \
+    ${@bb.utils.contains("DISTRO_FEATURES", "bluetooth", "blueman", "", d)} \
+    \
+    thunar-media-tags-plugin \
+    thunar-archive-plugin \
+    \
+    xfce4-appfinder \
+    xfce4-screenshooter \
+    xfce4-power-manager \
+    ristretto \
+    xfce4-taskmanager \
+    gigolo \
+    mousepad \
+    catfish \
+    xfce4-panel-profiles \
+    \
 	xserver-xf86-config \
-	xf86-input-tslib \
 	xf86-input-mouse \
 	xf86-input-keyboard \
 	xclock \
@@ -65,6 +118,7 @@ MY_PROGRAMMER_EXTRAS = "\
 BOARD_SPECIFIC_THINGS = ""
 BOARD_SPECIFIC_THINGS_topic-miami-florida = "\
 	tslib-calibrate \
+	xf86-input-tslib \
 	udev-rule-fbdev \
 	touchscreen-ad7879-config \
 	topic-florida-led-example-src \
@@ -86,3 +140,14 @@ MY_THINGS = "\
 	${BOARD_SPECIFIC_THINGS} \
 	"
 
+# Postprocessing steps
+desktopimage_rootfs_postprocess() {
+	# Set up timeserver config for CA
+	cat > ${IMAGE_ROOTFS}/etc/systemd/timesyncd.conf << EOF
+[Time]
+NTP=pool.ntp.org
+FallbackNTP=time1.google.com time2.google.com time3.google.com time4.google.com
+EOF
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "desktopimage_rootfs_postprocess;"
