@@ -18,7 +18,6 @@ RDEPENDS_${PN} += "\
 S = "${WORKDIR}/git"
 
 REDMINE_URI ?= "git://repo.topic.nl"
-REDMINE_URI = "git://${HOME}/projects"
 SRC_URI = "${REDMINE_URI}/${BPN}"
 
 do_install() {
