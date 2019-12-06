@@ -149,6 +149,11 @@ desktopimage_rootfs_postprocess() {
 NTP=pool.ntp.org
 FallbackNTP=time1.google.com time2.google.com time3.google.com time4.google.com
 EOF
+	# Remove some unwanted auto-start items
+	rm -f \
+		${IMAGE_ROOTFS}/etc/xdg/autostart/xfce4-notes-autostart.desktop \
+		${IMAGE_ROOTFS}/etc/xdg/autostart/xinput_calibrator.desktop \
+		${IMAGE_ROOTFS}/etc/xdg/autostart/blueman.desktop
 }
 
 ROOTFS_POSTPROCESS_COMMAND += "desktopimage_rootfs_postprocess;"
