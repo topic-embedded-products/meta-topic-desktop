@@ -13,3 +13,6 @@
 [submodule "meta-rust"]
 	path = meta-rust
 	url = git://github.com/meta-rust/meta-rust
+[submodule "meta-qt4"]
+	path = meta-qt4
+	url = git://git.yoctoproject.org/meta-qt4

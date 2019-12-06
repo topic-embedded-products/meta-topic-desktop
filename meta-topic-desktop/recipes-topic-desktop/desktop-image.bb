@@ -99,6 +99,7 @@ MY_XFCE_DESKTOP = "\
 	python3-pip \
 	sudo \
 	ca-certificates \
+	pr-demo-gui \
 	" 
 
 # Things that a programmer needs, like a compiler and cmake and libraries...
