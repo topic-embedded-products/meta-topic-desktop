@@ -22,6 +22,7 @@ DYPLO = "\
 
 MY_DRIVERS = "\
 	kernel-modules \
+	linux-firmware-rtl8192cu \
 	"
 
 # not using packagegroup-xfce-extended because it installs xfce-polkit
