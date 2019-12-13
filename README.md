@@ -44,3 +44,29 @@ extracts the image to the raw SD device. This will erase everything on the card.
 ```
 gunzip < tmp-glibc/deploy/images/${MACHINE}/desktop-image-${MACHINE}.wic.gz | sudo dd of=/dev/sdX bs=1M
 ```
+
+# Transfer to eMMC
+
+You can write the eMMC on the ultrascale devices using the WIC image as well,
+just write the wic to /dev/mmcblk0 on the board.
+
+Manually, partition and format the eMMC using these commands:
+
+```
+# Create a new partition table
+parted -s /dev/mmcblk0 mktable msdos \
+ mkpart primary fat16 1M 64M \
+ mkpart primary ext4 64M 4096M \
+ mkpart primary ext4 4096M 100%
+# format the DOS part
+mkfs.vfat -n "boot" /dev/mmcblk0p1
+# Format the Linux rootfs part
+mkfs.ext4 -m 0 -L "rootfs" -O sparse_super,dir_index  /dev/mmcblk0p2
+# Format the Linux data part, optimize for large files
+mkfs.ext4 -m 0 -L "data" -O large_file,sparse_super,dir_index /dev/mmcblk0p3
+```
+
+Copy the 'boot' files from SD card's "boot" partition to the boot partition
+of the eMMC, and then extract the rootfs tarball on to the "rootfs" partition,
+for example using a ssh link:
+cat tmp-glibc/deploy/images/tdkzu9/desktop-image-tdkzu9.rootfs.tar.gz | ssh tdkzu9 tar xzf - -C /run/media/root/rootfs
