@@ -13,5 +13,8 @@ do_compile() {
 
 do_install() {
 	install -d ${D}${sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml
-	install -m 644 ${S}/xfce4-power-manager.xml ${D}${sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/
+	for f in ${S}/*.xml
+	do
+		install -m 644 $f ${D}${sysconfdir}/xdg/xfce4/xfconf/xfce-perchannel-xml/
+	done
 }
