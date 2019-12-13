@@ -1,4 +1,4 @@
-export MACHINE=tdkz30
+export MACHINE=tdkzu9
 export BB_ENV_EXTRAWHITE=MACHINE
 export BUILDDIR="${PWD}"
 TOPDIR=`dirname ${PWD}`
