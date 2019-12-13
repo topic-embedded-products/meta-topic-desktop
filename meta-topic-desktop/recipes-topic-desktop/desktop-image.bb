@@ -102,6 +102,7 @@ MY_XFCE_DESKTOP = "\
 	ca-certificates \
 	xfce-topic-desktop-tweaks \
 	pr-demo-gui \
+	lxdm \
 	"
 
 # Things that a programmer needs, like a compiler and cmake and libraries...
