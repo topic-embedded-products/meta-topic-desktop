@@ -18,6 +18,7 @@ DYPLO = "\
 	kernel-module-dyplo \
 	dyplo-example-app \
 	dyplo-utils \
+	dyplo-udev-rules \
 	"
 
 MY_DRIVERS = "\
