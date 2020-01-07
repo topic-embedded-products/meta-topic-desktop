@@ -47,6 +47,18 @@ done
 
 set -e
 
+# Wait until kernel reloaded partition table
+echo -n "Waiting for partition table to reload "
+sync ${DEV}*
+partprobe ${DEV}
+while [ -e "${DEV}1" ] || [ -e "${DEV}2" ] || [ -e "${DEV}3" ]
+do
+	echo -n "."
+	sleep 0.1
+done
+
+echo ""
+
 # Partition the disk, as 64M FAT16, 1500MB root and the rest data
 parted --align optimal --script ${DEV} -- \
 	mklabel msdos \
@@ -55,13 +67,14 @@ parted --align optimal --script ${DEV} -- \
 	mkpart primary ext4 1564MiB -1s
 
 # Wait until kernel reloaded partition table
+# The system is removing & adding the devices several times
+sleep 1
 echo -n "Waiting for partition table to reload "
 while [ ! -e "${DEV}1" ] || [ ! -e "${DEV}2" ] || [ ! -e "${DEV}3" ]
 do
 	echo -n "."
 	sleep 0.1
 done
-
 echo ""
 
 # format the DOS part
