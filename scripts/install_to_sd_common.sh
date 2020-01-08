@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 # parse commandline
 DO_UNMOUNT=true
 DO_ROOTFS=true
@@ -72,7 +74,7 @@ if [ -z "${DTB}" ]
 then
 	DTB="uImage-*-adv7511.dtb"
 fi
-set -e
+
 if [ -z "${SD_BOOTSCRIPT}" ]
 then
 	SD_BOOTSCRIPT=autorun.scr
@@ -94,7 +96,7 @@ fi
 if [ -e ${IMAGE_ROOT}/${BOOT_BIN} ]
 then
 	cp ${IMAGE_ROOT}/${BOOT_BIN} ${MEDIA}/boot/BOOT.BIN
-	for fn in u-boot.img u-boot.bin atf-uboot.ub atf-spi.ub Image uImage
+	for fn in u-boot.img u-boot.bin atf-uboot.ub atf-spi.ub Image uImage u-boot.itb
 	do
 		if [ -e ${IMAGE_ROOT}/${fn} ]
 		then
