@@ -9,10 +9,6 @@ inherit qt4x11 gitpkgv
 PV = "0+${SRCPV}"
 PKGV = "0+${GITPKGV}"
 
-# Need font
-RDEPENDS_${PN} += "\
-	qt4-embedded-fonts-ttf-dejavu \
-	"
 # RRECOMMENDS_${PN} += "fpga-image-pr-demo"
 
 S = "${WORKDIR}/git"
