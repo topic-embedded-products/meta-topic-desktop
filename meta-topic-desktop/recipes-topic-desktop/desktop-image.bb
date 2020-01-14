@@ -31,6 +31,14 @@ MY_XFCE_DESKTOP = "\
 	avahi-daemon \
 	packagegroup-core-x11-xserver \
 	packagegroup-xfce-base \
+	\
+	font-adobe-100dpi font-adobe-utopia-100dpi \
+	font-bh-100dpi font-bh-lucidatypewriter-100dpi \
+	font-bitstream-100dpi font-cursor-misc \
+	font-misc-misc xorg-fonts-100dpi \
+	packagegroup-fonts-truetype \
+	xfwm4-theme-default-hdpi \
+	xfwm4-theme-default-xhdpi \
     \
     xfwm4-theme-daloa \
     \
