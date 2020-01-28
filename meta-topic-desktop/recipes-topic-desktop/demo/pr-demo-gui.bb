@@ -2,7 +2,7 @@ SUMMARY = "PR Demo Qt4 GUI"
 LICENSE = "CLOSED"
 DEPENDS = "libdyplo"
 
-SRCREV = "06fac6a664c3e733ed7e12b6b509a0fe8fca74a6"
+SRCREV = "60efdcb19fe7061e414870edc8741801235b4872"
 
 inherit qt4x11 gitpkgv
 
