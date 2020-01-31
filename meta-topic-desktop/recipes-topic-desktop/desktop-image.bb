@@ -27,8 +27,11 @@ MY_DRIVERS = "\
 	"
 
 # not using packagegroup-xfce-extended because it installs xfce-polkit
+# haveged solves lack-of-entropy issues so login does not delay until you
+#         move the mouse. And allows you to run a software access point. 
 MY_XFCE_DESKTOP = "\
 	avahi-daemon \
+	haveged \
 	packagegroup-core-x11-xserver \
 	packagegroup-xfce-base \
 	\
