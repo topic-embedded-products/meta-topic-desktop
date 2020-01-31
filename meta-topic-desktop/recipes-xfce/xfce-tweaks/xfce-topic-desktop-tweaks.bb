@@ -1,6 +1,6 @@
 LICENSE = "CLOSED"
 SUMMARY = "Tweaks for Topic Desktop"
-PV = "1"
+PV = "2"
 SRC_URI = "file://xfce4-power-manager.xml"
 
 inherit allarch useradd
@@ -13,7 +13,7 @@ USERADD_PARAM_${PN} = "-u 1000 -d /home/user -s /bin/sh -p '' -G users,video,dia
 S = "${WORKDIR}"
 
 # Allow our user to mount various media devices
-RRECOMMENDS_${PN} += "polkit-group-rule-usermount"
+RRECOMMENDS_${PN} += "polkit-group-rule-usermount polkit-rule-poweroff"
 
 do_compile() {
 	true
