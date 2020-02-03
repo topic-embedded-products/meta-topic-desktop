@@ -2,7 +2,7 @@ SUMMARY = "PR Demo Qt4 GUI"
 LICENSE = "CLOSED"
 DEPENDS = "libdyplo"
 
-SRCREV = "7fc25523d43d51783320a838b7d09c42caa6fdbb"
+SRCREV = "55a3e604bae90718ab8265fb3832b58989ad7d80"
 
 inherit qt4x11 gitpkgv
 
@@ -10,6 +10,7 @@ PV = "0+${SRCPV}"
 PKGV = "0+${GITPKGV}"
 
 # RRECOMMENDS_${PN} += "fpga-image-pr-demo"
+RRECOMMENDS_${PN} += "pr-demo-config"
 
 S = "${WORKDIR}/git"
 
