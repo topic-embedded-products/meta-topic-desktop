@@ -17,6 +17,9 @@ S = "${WORKDIR}/git"
 REDMINE_URI ?= "git://repo.topic.nl"
 SRC_URI = "${REDMINE_URI}/${BPN}"
 
+SRC_URI_append_zynqmp = " file://0001-Use-streaming-DMA-mode-instead-of-coherent.patch"
+
+
 FILES_${PN} += "${datadir}/icons"
 
 do_install() {

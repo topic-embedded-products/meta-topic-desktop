@@ -1,0 +1,44 @@
+From 35cae78b867753865747d42938b4c20d7774a571 Mon Sep 17 00:00:00 2001
+From: Mike Looijmans <mike.looijmans@topic.nl>
+Date: Tue, 4 Feb 2020 15:39:45 +0100
+Subject: [PATCH] Use streaming DMA mode instead of coherent
+
+On the MPSoC reading from uncached memory is horrendously slow (about 100MB/s), and
+if there's no hardware coherency, uncached memory will be used. Until we get
+hardware coherency to actually work on the MPSoC (or fix the performance issue) use
+the streaming mode which allocates cachable memory and performs cacheline maintenance
+on the CPU side which is slow on the 7-series Zynq, so we don't use it by default.
+---
+ mandelbrotpipeline.cpp | 2 +-
+ videopipeline.cpp      | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mandelbrotpipeline.cpp b/mandelbrotpipeline.cpp
+index 1cff8fc..e396f85 100644
+--- a/mandelbrotpipeline.cpp
++++ b/mandelbrotpipeline.cpp
+@@ -371,7 +371,7 @@ MandelbrotIncoming::MandelbrotIncoming(MandelbrotPipeline *parent, DyploContext
+     from_logic(dyplo->createDMAFifo(O_RDONLY)),
+     video_blocksize(blocksize)
+ {
+-    from_logic->reconfigure(dyplo::HardwareDMAFifo::MODE_COHERENT, blocksize, 8, true);
++    from_logic->reconfigure(dyplo::HardwareDMAFifo::MODE_STREAMING, blocksize, 8, true);
+     from_logic->addRouteFrom(node_index);
+     /* Prime reader */
+     for (unsigned int i = 0; i < from_logic->count(); ++i)
+diff --git a/videopipeline.cpp b/videopipeline.cpp
+index a7e71c3..0b176bc 100644
+--- a/videopipeline.cpp
++++ b/videopipeline.cpp
+@@ -98,9 +98,9 @@ int VideoPipeline::activate(DyploContext *dyplo, bool hardwareYUV, bool filterCo
+             dyplo->GetHardwareControl().routeAddSingle(tailnode & 0xFF, tailnode >> 8, headnode, 0);
+             tailnode = headnode;
+             from_logic = dyplo->createDMAFifo(O_RDONLY);
+-            from_logic->reconfigure(dyplo::HardwareDMAFifo::MODE_COHERENT, VIDEO_RGB_SIZE, 2, true);
++            from_logic->reconfigure(dyplo::HardwareDMAFifo::MODE_STREAMING, VIDEO_RGB_SIZE, 2, true);
+             from_logic->addRouteFrom(tailnode);
+-            to_logic->reconfigure(dyplo::HardwareDMAFifo::MODE_COHERENT, VIDEO_YUV_SIZE, 2, false);
++            to_logic->reconfigure(dyplo::HardwareDMAFifo::MODE_STREAMING, VIDEO_YUV_SIZE, 2, false);
+             to_logic->fcntl_set_flag(O_NONBLOCK);
+             if (filterTreshold)
+                 filterTreshold->enableNode();
