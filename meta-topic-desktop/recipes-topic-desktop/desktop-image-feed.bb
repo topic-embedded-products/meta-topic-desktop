@@ -14,6 +14,7 @@ OPTIONAL_PACKAGES = "\
 	ntfs-3g \
 	packagegroup-core-sdk \
 	strace \
+	v4l-utils \
 	"
 
 DEPENDS += "${OPTIONAL_PACKAGES}"
