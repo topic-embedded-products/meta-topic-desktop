@@ -6,4 +6,4 @@ QT_CONFIG_FLAGS += "-nomake examples"
 QT_WEBKIT = "-no-webkit"
 
 # Pending submission in mainline, should have been in qt4-${PV}.inc
-SRC_URI += "file://0038-3rdparty-javascriptcore-JITStubs.cpp-allow-builds-of.patch"
+# SRC_URI += "file://0038-3rdparty-javascriptcore-JITStubs.cpp-allow-builds-of.patch"
