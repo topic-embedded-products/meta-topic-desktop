@@ -140,10 +140,8 @@ BOARD_SPECIFIC_THINGS_topic-miami-florida = "\
 	topic-florida-led-example-src \
 	"
 
-# Firefox failed to compile on 32-bit, so restrict to zynqmp for now
 BOARD_SPECIFIC_THINGS_zynqmp = "\
 	xserver-xorg-extension-glx \
-	firefox \
 	"
 
 MY_THINGS = "\
