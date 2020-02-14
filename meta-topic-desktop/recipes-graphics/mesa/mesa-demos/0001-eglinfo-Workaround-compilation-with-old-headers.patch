@@ -1,0 +1,38 @@
+From 5e58a7adbab91a42424707ebfbaaeb503b0bc9fe Mon Sep 17 00:00:00 2001
+From: Mike Looijmans <mike.looijmans@topic.nl>
+Date: Fri, 14 Feb 2020 10:08:46 +0100
+Subject: [PATCH] eglinfo: Workaround compilation with old headers
+
+Fixes build errors like this:
+  error: 'EGL_PLATFORM_DEVICE_EXT' undeclared
+
+Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+---
+ src/egl/opengl/eglinfo.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/src/egl/opengl/eglinfo.c b/src/egl/opengl/eglinfo.c
+index c24f768..ce0151e 100644
+--- a/src/egl/opengl/eglinfo.c
++++ b/src/egl/opengl/eglinfo.c
+@@ -37,6 +37,20 @@
+ #define MAX_MODES 1000
+ #define MAX_SCREENS 10
+ 
++#ifndef EGL_PLATFORM_WAYLAND_EXT
++#    define EGL_PLATFORM_WAYLAND_EXT 0x31D8
++#endif
++#ifndef EGL_PLATFORM_X11_EXT
++#    define EGL_PLATFORM_X11_EXT     0x31D5
++#endif
++#ifndef EGL_PLATFORM_GBM_MESA
++#    define EGL_PLATFORM_GBM_MESA    0x31D7
++#endif
++#ifndef EGL_PLATFORM_DEVICE_EXT
++#    define EGL_PLATFORM_DEVICE_EXT  0x313F
++#endif
++
++
+ /* These are X visual types, so if you're running eglinfo under
+  * something not X, they probably don't make sense. */
+ static const char *vnames[] = { "SG", "GS", "SC", "PC", "TC", "DC" };
