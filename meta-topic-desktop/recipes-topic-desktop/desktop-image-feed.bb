@@ -11,6 +11,7 @@ DEPENDS = "desktop-image"
 # order for easy maintenance...
 OPTIONAL_PACKAGES = "\
 	ltp \
+	firefox \
 	ntfs-3g \
 	packagegroup-core-sdk \
 	strace \
