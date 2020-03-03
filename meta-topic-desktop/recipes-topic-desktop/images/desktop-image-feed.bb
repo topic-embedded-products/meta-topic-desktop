@@ -5,7 +5,7 @@ SUMMARY = "Recipe to create a feed in addition to the image"
 require recipes-core/meta/package-index.bb
 
 # We want to build the image itself
-DEPENDS = "desktop-image"
+DEPENDS = "desktop-image desktop-image-swu-emmc"
 
 # List of packages that we want to build but not deploy on target. In alphabetical
 # order for easy maintenance...
