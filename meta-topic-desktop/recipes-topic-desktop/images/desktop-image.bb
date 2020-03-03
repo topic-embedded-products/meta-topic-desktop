@@ -145,7 +145,10 @@ BOARD_SPECIFIC_THINGS_zynqmp = "\
 	"
 
 MY_THINGS = "\
+	kernel-devicetree \
 	${@bb.utils.contains('VIRTUAL-RUNTIME_dev_manager', 'busybox-mdev', 'modutils-loadscript', '', d)} \
+	${@ 'mtd-utils-ubifs' if d.getVar('UBI_SUPPORT') == 'true' else ''} \
+	${@bb.utils.contains("IMAGE_FEATURES", "swupdate", d.getVar('SWUPDATE_THINGS'), "", d)} \
 	${MY_DRIVERS} \
 	distro-feed-configs \
 	${MY_DEVELOPMENT_EXTRAS} \
