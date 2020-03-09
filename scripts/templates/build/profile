@@ -1,4 +1,8 @@
-export MACHINE=tdkzu9
+if [ -z "${MACHINE}" ]
+then
+  MACHINE=tdkzu9
+fi
+export MACHINE
 export BB_ENV_EXTRAWHITE=MACHINE
 export BUILDDIR="${PWD}"
 TOPDIR=`dirname ${PWD}`
