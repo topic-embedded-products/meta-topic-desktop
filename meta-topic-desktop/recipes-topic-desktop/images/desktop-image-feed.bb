@@ -12,6 +12,8 @@ DEPENDS = "desktop-image desktop-image-swu-emmc"
 OPTIONAL_PACKAGES = "\
 	ltp \
 	firefox \
+	gdb \
+	git \
 	ntfs-3g \
 	packagegroup-core-sdk \
 	strace \

@@ -112,23 +112,13 @@ MY_XFCE_DESKTOP = "\
 	python3-pip \
 	sudo \
 	ca-certificates \
+	network-manager-applet \
+	gstreamer1.0-plugins-base-rawparse \
+	gstreamer1.0-plugins-base-videoconvert \
+	gstreamer1.0-plugins-base-ximagesink \
 	xfce-topic-desktop-tweaks \
 	pr-demo-gui \
 	lxdm \
-	"
-
-# Things that a programmer needs, like a compiler and cmake and libraries...
-MY_PROGRAMMER_EXTRAS = "\
-	packagegroup-core-sdk \
-	cmake \
-	git \
-	gdb \
-	libc-dev \
-	libdyplo-dev \
-	tcl \
-	tk \
-	tk-lib \
-	tk-dev \
 	"
 
 BOARD_SPECIFIC_THINGS = ""
@@ -143,6 +133,8 @@ BOARD_SPECIFIC_THINGS_topic-miami-florida = "\
 BOARD_SPECIFIC_THINGS_zynqmp = "\
 	xserver-xorg-extension-glx \
 	"
+
+BOARD_SPECIFIC_THINGS_append_xdpzu7 = "xdp-dyplo-app"
 
 MY_THINGS = "\
 	kernel-devicetree \
