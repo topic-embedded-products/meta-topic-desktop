@@ -7,7 +7,7 @@ require recipes-extended/polkit/polkit-group-rule.inc
 SRC_URI = "file://50-usermount.rules"
 
 do_install() {
-    install -m 0755 ${WORKDIR}/50-usermount.rules ${D}${sysconfdir}/polkit-1/rules.d
+    install -m 0644 ${WORKDIR}/50-usermount.rules ${D}${sysconfdir}/polkit-1/rules.d
 }
 
 USERADD_PACKAGES = "${PN}"
