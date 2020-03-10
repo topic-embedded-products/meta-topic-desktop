@@ -14,6 +14,7 @@ OPTIONAL_PACKAGES = "\
 	firefox \
 	gdb \
 	git \
+	iperf3 \
 	ntfs-3g \
 	packagegroup-core-sdk \
 	strace \
