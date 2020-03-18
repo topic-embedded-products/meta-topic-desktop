@@ -12,9 +12,6 @@ MY_DEVELOPMENT_EXTRAS = "\
 	alsa-utils-aplay alsa-utils-speakertest alsa-utils-amixer alsa-utils-alsactl \
 	udhcpd-iface-config \
 	parted e2fsprogs-mke2fs dosfstools \
-	libdrm-tests \
-	v4l-utils \
-	yavta \
 	"
 
 DYPLO = "\
@@ -26,8 +23,6 @@ DYPLO = "\
 
 MY_DRIVERS = "\
 	kernel-modules \
-	dp159 \
-	kernel-module-topic-pl-fanctrl \
 	linux-firmware-rtl8192cu \
 	"
 
