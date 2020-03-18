@@ -9,9 +9,7 @@ IMAGE_FEATURES += "x11-base"
 IMAGE_FSTYPES = "tar.gz wic"
 
 MY_DEVELOPMENT_EXTRAS = "\
-	alsa-utils-aplay alsa-utils-speakertest alsa-utils-amixer alsa-utils-alsactl \
-	udhcpd-iface-config \
-	parted e2fsprogs-mke2fs dosfstools \
+	parted e2fsprogs-mke2fs \
 	"
 
 DYPLO = "\

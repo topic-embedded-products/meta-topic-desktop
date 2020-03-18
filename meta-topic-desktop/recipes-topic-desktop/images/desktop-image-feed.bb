@@ -10,6 +10,7 @@ DEPENDS = "desktop-image desktop-image-swu-emmc"
 # List of packages that we want to build but not deploy on target. In alphabetical
 # order for easy maintenance...
 OPTIONAL_PACKAGES = "\
+	alsa-utils \
 	ltp \
 	firefox \
 	gdb \
