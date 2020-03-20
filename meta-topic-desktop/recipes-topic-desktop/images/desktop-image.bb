@@ -105,9 +105,6 @@ MY_XFCE_DESKTOP = "\
 	ristretto \
 	evince \  
 	geany \
-	python3 \
-	python3-setuptools \
-	python3-pip \
 	sudo \
 	ca-certificates \
 	network-manager-applet \
@@ -132,7 +129,7 @@ BOARD_SPECIFIC_THINGS_zynqmp = "\
 	xserver-xorg-extension-glx \
 	"
 
-BOARD_SPECIFIC_THINGS_append_xdpzu7 = "xdp-dyplo-app"
+BOARD_SPECIFIC_THINGS_append_xdpzu7 = "xdpsensors-frontend"
 
 MY_THINGS = "\
 	kernel-devicetree \

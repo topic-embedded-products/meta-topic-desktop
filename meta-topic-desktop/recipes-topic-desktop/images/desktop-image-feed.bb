@@ -18,6 +18,9 @@ OPTIONAL_PACKAGES = "\
 	iperf3 \
 	ntfs-3g \
 	packagegroup-core-sdk \
+	python3 \
+	python3-setuptools \
+	python3-pip \
 	strace \
 	v4l-utils \
 	"
