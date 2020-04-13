@@ -23,6 +23,16 @@ SRC_URI = "${REDMINE_URI}/${BPN}"
 
 FILES_${PN} = "${datadir}"
 
+# The pr-demo-partials packages only exists for certain boards. Just adding it
+# to RRECOMMENDS will break the build for board that don't provide it, since
+# OE will still try to find a provider and bail out. Simplest solution is to
+# only add the dependency for certain boards.
+PRPARTIALS = ""
+PRPARTIALS_tdkz30 = "pr-demo-partials"
+PRPARTIALS_tdkzu9 = "pr-demo-partials"
+
+RRECOMMENDS_${PN} = "${PRPARTIALS}"
+
 do_compile() {
     true
 }

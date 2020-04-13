@@ -9,7 +9,6 @@ inherit qt4x11 gitpkgv
 PV = "0+${SRCPV}"
 PKGV = "0+${GITPKGV}"
 
-# RRECOMMENDS_${PN} += "fpga-image-pr-demo"
 RRECOMMENDS_${PN} += "pr-demo-config"
 
 S = "${WORKDIR}/git"
