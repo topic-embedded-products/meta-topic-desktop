@@ -1,5 +1,6 @@
 SUMMARY = "PR Demo floorplan layout configuration"
-LICENSE = "CLOSED"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 # Outcome depends on machine
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 # We don't need libc and postprocessing things
