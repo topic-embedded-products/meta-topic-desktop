@@ -10,6 +10,7 @@ IMAGE_FSTYPES = "tar.gz wic"
 
 MY_DEVELOPMENT_EXTRAS = "\
 	parted e2fsprogs-mke2fs \
+	libdrm-tests \
 	"
 
 DYPLO = "\
@@ -103,7 +104,7 @@ MY_XFCE_DESKTOP = "\
 	nano \
 	xarchiver \
 	ristretto \
-	evince \  
+	evince \
 	geany \
 	sudo \
 	ca-certificates \
