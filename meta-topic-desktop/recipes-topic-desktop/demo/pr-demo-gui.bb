@@ -14,8 +14,7 @@ RRECOMMENDS_${PN} += "pr-demo-config"
 
 S = "${WORKDIR}/git"
 
-REDMINE_URI ?= "git://repo.topic.nl"
-SRC_URI = "${REDMINE_URI}/${BPN}"
+SRC_URI = "git://github.com/topic-embedded-products/${BPN}.git"
 
 FILES_${PN} += "${datadir}/icons"
 

@@ -9,6 +9,4 @@ S = "${WORKDIR}/git"
 
 SRCREV = "3c4ae735b17d192b787dc2d35249fbfb70004e2d"
 
-REPO_TOPIC_PRODUCTS_SERVER ?= "repo-products.topic.nl"
-REPO_TOPIC_PRODUCTS_SERVER[vardepvalue] := "repo-products.topic.nl"
-SRC_URI = "git://${REPO_TOPIC_PRODUCTS_SERVER}/xdpsensors"
+SRC_URI = "git://github.com/topic-embedded-products/xdpsensors.git"

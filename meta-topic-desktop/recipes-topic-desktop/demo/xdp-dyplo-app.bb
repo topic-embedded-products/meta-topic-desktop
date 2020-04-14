@@ -12,8 +12,7 @@ PV = "0+${SRCPV}"
 PKGV = "0+${GITPKGV}"
 S = "${WORKDIR}/git"
 
-REPO_TOPIC_SERVER ?= "repo.topic.nl"
-SRC_URI = "git://${REPO_TOPIC_SERVER}/${BPN}"
+SRC_URI = "git://github.com/topic-embedded-products/${BPN}.git"
 
 # Have some fun with this using:
 # export DISPLAY=:0
