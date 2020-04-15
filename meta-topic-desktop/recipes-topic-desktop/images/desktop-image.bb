@@ -132,13 +132,8 @@ BOARD_SPECIFIC_THINGS_zynqmp = "\
 
 BOARD_SPECIFIC_THINGS_append_xdpzu7 = "xdpsensors-frontend"
 
-MY_THINGS = "\
-	kernel-devicetree \
-	${@bb.utils.contains('VIRTUAL-RUNTIME_dev_manager', 'busybox-mdev', 'modutils-loadscript', '', d)} \
-	${@ 'mtd-utils-ubifs' if d.getVar('UBI_SUPPORT') == 'true' else ''} \
-	${@bb.utils.contains("IMAGE_FEATURES", "swupdate", d.getVar('SWUPDATE_THINGS'), "", d)} \
+MY_THINGS += "\
 	${MY_DRIVERS} \
-	distro-feed-configs \
 	${MY_DEVELOPMENT_EXTRAS} \
 	${MY_XFCE_DESKTOP} \
 	${DYPLO} \
