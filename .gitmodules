@@ -16,3 +16,6 @@
 [submodule "meta-qt4"]
 	path = meta-qt4
 	url = git://git.yoctoproject.org/meta-qt4
+[submodule "meta-qt5"]
+	path = meta-qt5
+	url = git://github.com/meta-qt5/meta-qt5.git

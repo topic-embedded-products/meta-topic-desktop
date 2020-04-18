@@ -3,6 +3,9 @@ DESCRIPTION = "TOPIC Miami image for XFCE Graphical Desktop Environment"
 # Extending my-image
 require recipes-core/images/my-image.bb
 
+# Add support for QT development in the SDK
+inherit populate_sdk_qt5
+
 IMAGE_FEATURES += "x11-base"
 
 # Don't create an ubi image, it won't fit
