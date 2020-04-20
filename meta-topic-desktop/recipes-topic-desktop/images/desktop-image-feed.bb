@@ -26,6 +26,7 @@ OPTIONAL_PACKAGES = "\
 	python3 \
 	python3-setuptools \
 	python3-pip \
+	qt5-creator \
 	strace \
 	v4l-utils \
 	"
