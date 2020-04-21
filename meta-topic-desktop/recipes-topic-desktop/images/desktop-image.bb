@@ -117,6 +117,7 @@ MY_XFCE_DESKTOP = "\
 	gstreamer1.0-plugins-base-ximagesink \
 	xfce-topic-desktop-tweaks \
 	pr-demo-gui \
+	dyplo-qt-image-demo \
 	lxdm \
 	"
 
