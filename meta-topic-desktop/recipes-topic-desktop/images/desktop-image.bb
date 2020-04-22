@@ -14,6 +14,8 @@ IMAGE_FSTYPES = "tar.gz wic"
 MY_DEVELOPMENT_EXTRAS = "\
 	parted e2fsprogs-mke2fs \
 	libdrm-tests \
+	gdbserver \
+	openssh-sftp-server \
 	"
 
 DYPLO = "\
