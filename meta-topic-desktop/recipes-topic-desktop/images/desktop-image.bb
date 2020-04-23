@@ -11,12 +11,17 @@ IMAGE_FEATURES += "x11-base"
 # Don't create an ubi image, it won't fit
 IMAGE_FSTYPES = "tar.gz wic"
 
+# Workaround SDK conflict between openssh and dropbear
+SFTPSERVER = "openssh-sftp-server"
+SFTPSERVER_task-populate-sdk = ""
+
 MY_DEVELOPMENT_EXTRAS = "\
 	parted e2fsprogs-mke2fs \
 	libdrm-tests \
 	gdbserver \
-	openssh-sftp-server \
+	${SFTPSERVER} \
 	"
+
 
 DYPLO = "\
 	kernel-module-dyplo \
