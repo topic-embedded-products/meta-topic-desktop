@@ -122,6 +122,7 @@ MY_XFCE_DESKTOP = "\
 	gstreamer1.0-plugins-base-rawparse \
 	gstreamer1.0-plugins-base-videoconvert \
 	gstreamer1.0-plugins-base-ximagesink \
+	gstreamer1.0-plugins-good-video4linux2 \
 	xfce-topic-desktop-tweaks \
 	pr-demo-gui \
 	dyplo-qt-image-demo \
