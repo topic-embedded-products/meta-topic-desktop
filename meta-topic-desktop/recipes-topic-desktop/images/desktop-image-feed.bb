@@ -12,6 +12,9 @@ EXTRA_IMAGES_zynqmp = "desktop-image-swu-emmc"
 # We want to build the image itself
 DEPENDS = "desktop-image ${EXTRA_IMAGES}"
 
+# For the zu9 we also want the Dyplo/Qt developer image
+EXTRA_IMAGES_append_tdkzu9 = " desktop-dyplo-dev-image-swu-emmc"
+
 # List of packages that we want to build but not deploy on target. In alphabetical
 # order for easy maintenance...
 OPTIONAL_PACKAGES = "\
