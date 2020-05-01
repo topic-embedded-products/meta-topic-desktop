@@ -11,7 +11,7 @@ EXCLUDE_FROM_SHLIBS = "1"
 # Allow creating an empty package if the machine isn't supported (yet) to satisfy dependencies
 ALLOW_EMPTY_${PN} = "1"
 
-SRCREV = "f5410d41957e3cf99a39fc9019178a8a012cb4d0"
+SRCREV = "88805064e38922397f7cb7868bb3408a6d97e264"
 
 inherit gitpkgv
 
@@ -29,7 +29,9 @@ FILES_${PN} = "${datadir}"
 # only add the dependency for certain boards.
 PRPARTIALS = ""
 PRPARTIALS_tdkz30 = "pr-demo-partials"
+PRPARTIALS_tdkzu6 = "pr-demo-partials"
 PRPARTIALS_tdkzu9 = "pr-demo-partials"
+PRPARTIALS_tdkzu15 = "pr-demo-partials"
 
 RRECOMMENDS_${PN} = "${PRPARTIALS}"
 
