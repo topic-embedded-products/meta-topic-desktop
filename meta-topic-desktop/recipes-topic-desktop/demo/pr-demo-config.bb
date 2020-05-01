@@ -28,6 +28,7 @@ FILES_${PN} = "${datadir}"
 # OE will still try to find a provider and bail out. Simplest solution is to
 # only add the dependency for certain boards.
 PRPARTIALS = ""
+PRPARTIALS_tdkz15 = "pr-demo-partials"
 PRPARTIALS_tdkz30 = "pr-demo-partials"
 PRPARTIALS_tdkzu6 = "pr-demo-partials"
 PRPARTIALS_tdkzu9 = "pr-demo-partials"
