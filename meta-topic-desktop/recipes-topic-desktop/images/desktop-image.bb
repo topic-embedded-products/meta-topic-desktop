@@ -33,6 +33,7 @@ DYPLO = "\
 MY_DRIVERS = "\
 	kernel-modules \
 	linux-firmware-rtl8192cu \
+	fuse-exfat \
 	"
 
 # not using packagegroup-xfce-extended because it installs xfce-polkit
