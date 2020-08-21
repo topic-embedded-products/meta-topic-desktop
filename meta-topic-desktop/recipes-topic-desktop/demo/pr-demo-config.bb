@@ -11,7 +11,7 @@ EXCLUDE_FROM_SHLIBS = "1"
 # Allow creating an empty package if the machine isn't supported (yet) to satisfy dependencies
 ALLOW_EMPTY_${PN} = "1"
 
-SRCREV = "88805064e38922397f7cb7868bb3408a6d97e264"
+SRCREV = "1b4b8453c82cd28bad2b7bc6423045acad441399"
 
 inherit gitpkgv
 
@@ -33,6 +33,7 @@ PRPARTIALS_tdkz30 = "pr-demo-partials"
 PRPARTIALS_tdkzu6 = "pr-demo-partials"
 PRPARTIALS_tdkzu9 = "pr-demo-partials"
 PRPARTIALS_tdkzu15 = "pr-demo-partials"
+PRPARTIALS_xdpzu7 = "pr-demo-partials"
 
 RRECOMMENDS_${PN} = "${PRPARTIALS}"
 
