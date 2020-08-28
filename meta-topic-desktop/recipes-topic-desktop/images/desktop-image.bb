@@ -125,6 +125,7 @@ MY_XFCE_DESKTOP = "\
 	gstreamer1.0-plugins-base-ximagesink \
 	gstreamer1.0-plugins-good-video4linux2 \
 	xfce-topic-desktop-tweaks \
+	networkmanager-wifi-nopowersave \
 	pr-demo-gui \
 	dyplo-qt-image-demo \
 	lxdm \
