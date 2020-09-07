@@ -142,6 +142,7 @@ BOARD_SPECIFIC_THINGS_topic-miami-florida = "\
 
 BOARD_SPECIFIC_THINGS_zynqmp = "\
 	xserver-xorg-extension-glx \
+	${@bb.utils.contains('SOC_VARIANT', 'ev', 'gstreamer1.0-omx', '', d)} \
 	"
 
 BOARD_SPECIFIC_THINGS_append_xdpzu7 = "xdpsensors-frontend"
