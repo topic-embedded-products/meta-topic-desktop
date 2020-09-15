@@ -28,6 +28,9 @@ fi
 if [ ! -f ${BUILDDIR}/conf/local.conf ]
 then
 	cp -rp scripts/templates/build/* ${BUILDDIR}/
+	# Make bblayers.conf a symlink so it's under version control
+	rm ${BUILDDIR}/conf/bblayers.conf
+	ln -s ../../scripts/templates/build/conf/bblayers.conf ${BUILDDIR}/conf/bblayers.conf
 fi
 
 cd topic-platform/oe-core
