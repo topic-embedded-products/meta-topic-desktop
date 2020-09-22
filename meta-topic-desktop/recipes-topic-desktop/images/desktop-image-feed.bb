@@ -30,6 +30,7 @@ OPTIONAL_PACKAGES = "\
 	iperf3 \
 	ntfs-3g \
 	packagegroup-core-sdk \
+	pciutils \
 	python3 \
 	python3-setuptools \
 	python3-pip \
