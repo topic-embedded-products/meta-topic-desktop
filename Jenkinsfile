@@ -24,6 +24,13 @@ pipeline {
             }
         }
 
+        stage('Push github') {
+              when { branch 'master' } // Only run this step on the master branch
+              steps {
+                sh 'git push git@github.com:topic-embedded-products/meta-topic-desktop.git HEAD:refs/heads/master'
+            }
+        }
+
         stage('Update downloads') {
             when { branch 'release' }
             steps {
