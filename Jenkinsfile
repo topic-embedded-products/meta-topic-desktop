@@ -37,5 +37,12 @@ pipeline {
                 sh 'scripts/release-downloads.sh'
             }
         }
+
+        stage('Update SDK') {
+            when { branch 'release' }
+            steps {
+                sh 'scripts/release-sdk.sh'
+            }
+        }
     }
 }
