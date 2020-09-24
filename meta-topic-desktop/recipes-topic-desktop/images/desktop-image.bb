@@ -127,7 +127,6 @@ MY_XFCE_DESKTOP = "\
 	xfce-topic-desktop-tweaks \
 	networkmanager-wifi-nopowersave \
 	pr-demo-gui \
-	dyplo-qt-image-demo \
 	lxdm \
 	"
 
