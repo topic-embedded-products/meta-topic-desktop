@@ -121,6 +121,7 @@ MY_XFCE_DESKTOP = "\
 	ca-certificates \
 	network-manager-applet \
 	gstreamer1.0-plugins-base-rawparse \
+	gstreamer1.0-plugins-base-videotestsrc \
 	gstreamer1.0-plugins-base-videoconvert \
 	gstreamer1.0-plugins-base-ximagesink \
 	gstreamer1.0-plugins-good-video4linux2 \
@@ -128,6 +129,13 @@ MY_XFCE_DESKTOP = "\
 	networkmanager-wifi-nopowersave \
 	pr-demo-gui \
 	lxdm \
+	"
+VCU_THINGS = "\
+	kernel-module-vcu \
+	libomxil-xlnx \
+	gstreamer1.0-omx \
+	libvcu-xlnx \
+	vcu-firmware \
 	"
 
 BOARD_SPECIFIC_THINGS = ""
@@ -144,7 +152,10 @@ BOARD_SPECIFIC_THINGS_zynqmp = "\
 	${@bb.utils.contains('SOC_VARIANT', 'ev', 'gstreamer1.0-omx', '', d)} \
 	"
 
-BOARD_SPECIFIC_THINGS_append_xdpzu7 = "xdpsensors-frontend"
+BOARD_SPECIFIC_THINGS_append_xdpzu7 = "\
+	xdpsensors-frontend \	
+	${VCU_THINGS} \
+	"
 
 MY_THINGS += "\
 	${MY_DRIVERS} \

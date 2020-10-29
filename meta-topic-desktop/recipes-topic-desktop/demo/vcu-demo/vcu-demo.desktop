@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=vcu Demo
+Exec=/usr/bin/vcu-demo.sh
+Categories=AudioVideo;Video;Development
+Icon=/usr/share/icons/hicolor/128x128/apps/blueman.png
+Terminal=true
+Name[en_US]=vcu-demo.desktop
