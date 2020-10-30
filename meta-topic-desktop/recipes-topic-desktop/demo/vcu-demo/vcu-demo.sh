@@ -20,25 +20,25 @@ fi
 
 echo "Setting the stream"
 
-yavta -w '0x0098c981 4' /dev/v4l-subdev2 2> /dev/null
+yavta -w '0x0098c981 4' /dev/v4l-subdev2 &> /dev/null
 
 #SONY IMX274 Sensor
-media-ctl -d /dev/media0 -V "\"IMX274\":0  [fmt:SRGGB10_1X10/1920x1080 field:none]" 2> /dev/null
+media-ctl -d /dev/media0 -V "\"IMX274\":0  [fmt:SRGGB10_1X10/1920x1080 field:none]" &> /dev/null
 #MIPI CSI2-Rx Subsystem
-media-ctl -d /dev/media0 -V "\"a0300000.mipi_csi2_rx_subsystem\":1  [fmt:SRGGB10_1X10/1920x1080 field:none]" 2> /dev/null
-media-ctl -d /dev/media0 -V "\"a0300000.mipi_csi2_rx_subsystem\":0  [fmt:SRGGB8_1X8/1920x1080 field:none]" 2> /dev/null
+media-ctl -d /dev/media0 -V "\"a0300000.mipi_csi2_rx_subsystem\":1  [fmt:SRGGB10_1X10/1920x1080 field:none]" &> /dev/null
+media-ctl -d /dev/media0 -V "\"a0300000.mipi_csi2_rx_subsystem\":0  [fmt:SRGGB8_1X8/1920x1080 field:none]" &> /dev/null
 #Demosaic IP
-media-ctl -d /dev/media0 -V "\"a0140000.v_demosaic\":0  [fmt:SRGGB8_1X8/1920x1080 field:none]" 2> /dev/null
-media-ctl -d /dev/media0 -V "\"a0140000.v_demosaic\":1  [fmt:RBG888_1X24/1920x1080 field:none]" 2> /dev/null
+media-ctl -d /dev/media0 -V "\"a0140000.v_demosaic\":0  [fmt:SRGGB8_1X8/1920x1080 field:none]" &> /dev/null
+media-ctl -d /dev/media0 -V "\"a0140000.v_demosaic\":1  [fmt:RBG888_1X24/1920x1080 field:none]" &> /dev/null
 
-media-ctl -d /dev/media0 -V "\"a0100000.v_proc_ss_csc\":0  [fmt:RBG888_1X24/1920x1080 field:none]" 2> /dev/null
-media-ctl -d /dev/media0 -V "\"a0100000.v_proc_ss_csc\":1  [fmt:VYYUYY8_1X24/1920x1080 field:none]" 2> /dev/null
+media-ctl -d /dev/media0 -V "\"a0100000.v_proc_ss_csc\":0  [fmt:RBG888_1X24/1920x1080 field:none]" &> /dev/null
+media-ctl -d /dev/media0 -V "\"a0100000.v_proc_ss_csc\":1  [fmt:VYYUYY8_1X24/1920x1080 field:none]" &> /dev/null
 
-yavta -w '0x0098c9a1 80' /dev/v4l-subdev0 2> /dev/null
-yavta -w '0x0098c9a2 55' /dev/v4l-subdev0 2> /dev/null
-yavta -w '0x0098c9a3 35' /dev/v4l-subdev0 2> /dev/null
-yavta -w '0x0098c9a4 24' /dev/v4l-subdev0 2> /dev/null
-yavta -w '0x0098c9a5 40' /dev/v4l-subdev0 2> /dev/null
+yavta -w '0x0098c9a1 80' /dev/v4l-subdev0 &> /dev/null
+yavta -w '0x0098c9a2 55' /dev/v4l-subdev0 &> /dev/null
+yavta -w '0x0098c9a3 35' /dev/v4l-subdev0 &> /dev/null
+yavta -w '0x0098c9a4 24' /dev/v4l-subdev0 &> /dev/null
+yavta -w '0x0098c9a5 40' /dev/v4l-subdev0 &> /dev/null
 
 echo "Starting the stream"
 
