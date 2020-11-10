@@ -1,25 +1,5 @@
 #!/bin/sh
 
-echo "
-Please enter the targeted bitrate:
-1 - 600 Kbps
-2 - 6 Mbps
-3 - 60 Mbps
-"
-read number
-
-if [ $number == 1 ]
-then
-        bitrate=600
-elif [ $number == 2 ]
-then
-        bitrate=6000
-else
-        bitrate=60000
-fi
-
-echo "Setting the stream"
-
 yavta -w '0x0098c981 4' /dev/v4l-subdev2 &> /dev/null
 
 #SONY IMX274 Sensor
@@ -39,6 +19,24 @@ yavta -w '0x0098c9a2 55' /dev/v4l-subdev0 &> /dev/null
 yavta -w '0x0098c9a3 35' /dev/v4l-subdev0 &> /dev/null
 yavta -w '0x0098c9a4 24' /dev/v4l-subdev0 &> /dev/null
 yavta -w '0x0098c9a5 40' /dev/v4l-subdev0 &> /dev/null
+
+echo "
+Please enter the targeted bitrate:
+1 - 600 Kbps
+2 - 6 Mbps
+3 - 60 Mbps
+"
+read number
+
+if [ "$number" == 1 ]
+then
+        bitrate=600
+elif [ "$number" == 2 ]
+then
+        bitrate=6000
+else
+        bitrate=60000
+fi
 
 echo "Starting the stream"
 
