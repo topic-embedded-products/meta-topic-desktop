@@ -11,7 +11,7 @@ EXCLUDE_FROM_SHLIBS = "1"
 # Allow creating an empty package if the machine isn't supported (yet) to satisfy dependencies
 ALLOW_EMPTY_${PN} = "1"
 
-SRCREV = "1b4b8453c82cd28bad2b7bc6423045acad441399"
+SRCREV = "f55a889319fd71373e011c584475461d0266a372"
 
 inherit gitpkgv
 
