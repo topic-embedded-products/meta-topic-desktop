@@ -1,0 +1,3 @@
+# Allow access to OMX for normal users
+KERNEL=="allegro*", MODE:="0666", GROUP:="video"
+KERNEL=="dmaproxy", MODE:="0666", GROUP:="video"

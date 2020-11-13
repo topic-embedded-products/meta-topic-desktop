@@ -132,6 +132,7 @@ MY_XFCE_DESKTOP = "\
 	"
 VCU_THINGS = "\
 	kernel-module-vcu \
+	vcu-udev-rules \
 	libomxil-xlnx \
 	gstreamer1.0-omx \
 	libvcu-xlnx \
