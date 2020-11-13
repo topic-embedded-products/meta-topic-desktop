@@ -3,7 +3,7 @@ LICENSE = "CLOSED"
 
 inherit allarch
 
-PV = "3"
+PV = "4"
 S = "${WORKDIR}"
 
 SRC_URI = "file://${BPN}.sh file://vcu-demo.desktop"
