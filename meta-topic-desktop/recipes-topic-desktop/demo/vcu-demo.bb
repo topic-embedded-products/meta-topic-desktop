@@ -1,12 +1,16 @@
 SUMMARY = "VCU-demo script"
 LICENSE = "CLOSED"
 
-PV = "2"
+inherit allarch
+
+PV = "3"
 S = "${WORKDIR}"
 
 SRC_URI = "file://${BPN}.sh file://vcu-demo.desktop"
 
-RDEPENDS_${PN} = "kernel-module-vcu \
+RDEPENDS_${PN} = "\
+	kernel-module-vcu \
+	vcu-udev-rules \
 	libomxil-xlnx \
 	gstreamer1.0-omx \
 	libvcu-xlnx \
