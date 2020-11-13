@@ -39,4 +39,6 @@ OPTIONAL_PACKAGES = "\
 	v4l-utils \
 	"
 
+OPTIONAL_PACKAGES_append_xdpzu7 += "vcu-demo"
+
 DEPENDS += "${OPTIONAL_PACKAGES}"
