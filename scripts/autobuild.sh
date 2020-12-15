@@ -1,3 +1,4 @@
+#!/bin/sh -e
 if [ ! -d build ]
 then
   echo "First time build - setting up."
