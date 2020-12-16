@@ -4,18 +4,14 @@ echo "
 Please enter the targeted bitrate:
 1 - 600 Kbps
 2 - 6 Mbps
-3 - 60 Mbps
 "
 read number
 
 if [ "$number" == 1 ]
 then
         bitrate=600
-elif [ "$number" == 2 ]
-then
-        bitrate=6000
 else
-        bitrate=60000
+        bitrate=6000
 fi
 
 echo "Starting the stream"
@@ -28,3 +24,5 @@ echo "Please connect to the stream using tcp://${ip4}:5000"
 echo "Press a key to exit"
 
 read key
+
+kill %1
