@@ -3,7 +3,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=801f80980d171dd6425610833a22dbe6"
 DEPENDS = "libdyplo"
 
-SRCREV = "86ed94bb41afc16910943af41e0dc20f2a497ebf"
+SRCREV = "8a14f524266b52df28e6f6a173509aed25cd9e4a"
 
 inherit qt4x11 gitpkgv
 
